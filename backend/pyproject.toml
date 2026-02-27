@@ -1,0 +1,27 @@
+[project]
+name = "storybook-backend"
+version = "0.1.0"
+description = "StoryBook backend API"
+requires-python = ">=3.11"
+license = {text = "GPL-3.0"}
+dependencies = [
+    "fastapi>=0.115.0,<1.0.0",
+    "uvicorn[standard]>=0.30.0,<1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0,<9.0.0",
+    "httpx>=0.27.0,<1.0.0",
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "storybook-backend"
+packages = [{include = "app"}]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
