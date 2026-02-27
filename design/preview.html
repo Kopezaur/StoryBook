@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>StoryBook - Design Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky-blue: #87CEEB;
+    --sage-green: #A8D5BA;
+    --snow-white: #F8F9FA;
+    --slate: #2D3436;
+    --stone: #9B8E7E;
+    --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --radius: 8px;
+    --shadow: 0 2px 8px rgba(45,52,54,0.1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--font);
+    background: var(--snow-white);
+    color: var(--slate);
+    line-height: 1.6;
+    padding: 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+  h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; border-bottom: 2px solid var(--sage-green); padding-bottom: 0.5rem; }
+  h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+  p.subtitle { color: var(--stone); margin-bottom: 2rem; }
+
+  /* Color Swatches */
+  .swatches { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .swatch {
+    width: 150px; border-radius: var(--radius); overflow: hidden;
+    box-shadow: var(--shadow); background: white;
+  }
+  .swatch-color { height: 80px; }
+  .swatch-label { padding: 0.5rem 0.75rem; font-size: 0.8rem; }
+  .swatch-label strong { display: block; font-size: 0.9rem; }
+
+  /* Typography */
+  .type-row { margin-bottom: 1rem; display: flex; align-items: baseline; gap: 1rem; }
+  .type-label { font-size: 0.75rem; color: var(--stone); min-width: 100px; }
+
+  /* Buttons */
+  .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .btn {
+    padding: 0.65rem 1.4rem; border-radius: var(--radius);
+    font-family: var(--font); font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; border: 2px solid transparent; transition: all 0.2s;
+  }
+  .btn-primary { background: var(--sky-blue); color: #fff; border-color: var(--sky-blue); }
+  .btn-primary:hover { background: #6bb8d9; border-color: #6bb8d9; }
+  .btn-secondary { background: transparent; color: var(--slate); border-color: var(--stone); }
+  .btn-secondary:hover { background: var(--stone); color: #fff; }
+  .btn-accent { background: var(--sage-green); color: var(--slate); border-color: var(--sage-green); }
+  .btn-sm { padding: 0.4rem 1rem; font-size: 0.8rem; }
+
+  /* Cards */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+  .card {
+    background: #fff; padding: 1.5rem; border-radius: var(--radius);
+    box-shadow: var(--shadow); text-align: center; transition: transform 0.2s;
+  }
+  .card:hover { transform: translateY(-3px); }
+  .card-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+  .card p { font-size: 0.85rem; color: var(--stone); }
+
+  /* Nav Mock */
+  .nav-mock {
+    display: flex; justify-content: space-between; align-items: center;
+    background: #fff; padding: 0.75rem 1.5rem; border-radius: var(--radius);
+    box-shadow: var(--shadow); margin-bottom: 1rem;
+  }
+  .nav-brand { font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 0.4rem; }
+  .nav-links { display: flex; gap: 1.25rem; }
+  .nav-links a { color: var(--slate); text-decoration: none; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
+  .nav-links a:hover { color: var(--sky-blue); }
+
+  /* Layout Mock */
+  .layout-mock {
+    border: 2px dashed var(--stone); border-radius: var(--radius);
+    overflow: hidden; background: white;
+  }
+  .layout-hero {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    padding: 2rem; align-items: center;
+  }
+  .layout-hero h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+  .layout-hero p { color: var(--stone); font-size: 0.9rem; margin-bottom: 1rem; }
+  .layout-features {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem;
+    padding: 1.5rem 2rem 2rem;
+  }
+  .layout-placeholder {
+    background: var(--snow-white); border: 1px dashed #ccc; border-radius: var(--radius);
+    padding: 1rem; text-align: center; font-size: 0.8rem; color: var(--stone);
+  }
+  .mountain-svg { width: 100%; border-radius: var(--radius); }
+
+  /* SVG Icons section */
+  .icon-grid { display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-end; }
+  .icon-item { text-align: center; }
+  .icon-item svg { display: block; margin: 0 auto 0.5rem; }
+  .icon-item span { font-size: 0.75rem; color: var(--stone); }
+</style>
+</head>
+<body>
+  <h1>StoryBook Design Preview</h1>
+  <p class="subtitle">Nature / travel theme &mdash; maps &amp; mountains</p>
+
+  <!-- Colors -->
+  <h2>Color Palette</h2>
+  <div class="swatches">
+    <div class="swatch"><div class="swatch-color" style="background:#87CEEB"></div><div class="swatch-label"><strong>Sky Blue</strong>#87CEEB &middot; primary</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#A8D5BA"></div><div class="swatch-label"><strong>Sage Green</strong>#A8D5BA &middot; secondary</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#F8F9FA;border-bottom:1px solid #e0e0e0"></div><div class="swatch-label"><strong>Snow White</strong>#F8F9FA &middot; background</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#2D3436"></div><div class="swatch-label"><strong>Slate</strong>#2D3436 &middot; text</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#9B8E7E"></div><div class="swatch-label"><strong>Stone</strong>#9B8E7E &middot; accent</div></div>
+  </div>
+
+  <!-- Typography -->
+  <h2>Typography</h2>
+  <p style="margin-bottom:1rem;color:var(--stone);font-size:0.85rem">Font: Inter &middot; system-ui fallback stack</p>
+  <div class="type-row"><span class="type-label">2.5rem / 700</span><span style="font-size:2.5rem;font-weight:700">Heading 1</span></div>
+  <div class="type-row"><span class="type-label">2rem / 700</span><span style="font-size:2rem;font-weight:700">Heading 2</span></div>
+  <div class="type-row"><span class="type-label">1.5rem / 600</span><span style="font-size:1.5rem;font-weight:600">Heading 3</span></div>
+  <div class="type-row"><span class="type-label">1rem / 400</span><span style="font-size:1rem">Body text &mdash; The mountain trail winds through ancient pines.</span></div>
+  <div class="type-row"><span class="type-label">0.875rem / 400</span><span style="font-size:0.875rem;color:var(--stone)">Small / caption &mdash; Last updated 3 days ago</span></div>
+
+  <!-- SVG Icons -->
+  <h2>Icons (Inline SVG)</h2>
+  <div class="icon-grid">
+    <div class="icon-item">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <polygon points="24,6 42,42 6,42" fill="var(--sage-green)" opacity="0.8"/>
+        <polygon points="16,42 28,18 40,42" fill="var(--stone)" opacity="0.6"/>
+        <line x1="24" y1="6" x2="24" y2="2" stroke="var(--slate)" stroke-width="1.5"/>
+        <polygon points="24,2 28,6 24,5" fill="var(--sky-blue)" opacity="0.7"/>
+      </svg>
+      <span>Mountain</span>
+    </div>
+    <div class="icon-item">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="20" stroke="var(--stone)" stroke-width="2" fill="none"/>
+        <line x1="24" y1="4" x2="24" y2="44" stroke="var(--stone)" stroke-width="1" opacity="0.4"/>
+        <line x1="4" y1="24" x2="44" y2="24" stroke="var(--stone)" stroke-width="1" opacity="0.4"/>
+        <polygon points="24,8 26,20 24,18 22,20" fill="var(--sky-blue)"/>
+        <polygon points="24,40 22,28 24,30 26,28" fill="var(--stone)"/>
+      </svg>
+      <span>Compass</span>
+    </div>
+    <div class="icon-item">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <rect x="6" y="10" width="36" height="28" rx="3" stroke="var(--stone)" stroke-width="2" fill="none"/>
+        <circle cx="18" cy="22" r="4" fill="var(--sky-blue)" opacity="0.6"/>
+        <polyline points="6,34 16,26 24,32 32,22 42,30" stroke="var(--sage-green)" stroke-width="2" fill="none"/>
+      </svg>
+      <span>Map</span>
+    </div>
+    <div class="icon-item">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <path d="M24 8 L10 36 L18 36 L18 42 L30 42 L30 36 L38 36 Z" fill="var(--sage-green)" opacity="0.7" stroke="var(--slate)" stroke-width="1.5"/>
+      </svg>
+      <span>Tree</span>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <h2>Buttons</h2>
+  <div class="btn-row">
+    <button class="btn btn-primary">Primary</button>
+    <button class="btn btn-secondary">Secondary</button>
+    <button class="btn btn-accent">Accent</button>
+    <button class="btn btn-primary btn-sm">Small Primary</button>
+    <button class="btn btn-secondary btn-sm">Small Secondary</button>
+  </div>
+
+  <!-- Cards -->
+  <h2>Cards</h2>
+  <div class="card-grid">
+    <div class="card"><div class="card-icon">&#127956;</div><h3>Trails</h3><p>Curated paths through forests and ridgelines.</p></div>
+    <div class="card"><div class="card-icon">&#128506;</div><h3>Maps</h3><p>Topographic maps with elevation data.</p></div>
+    <div class="card"><div class="card-icon">&#9978;</div><h3>Camps</h3><p>Rest spots under the stars.</p></div>
+    <div class="card"><div class="card-icon">&#127748;</div><h3>Sunrises</h3><p>The best viewpoints at dawn.</p></div>
+  </div>
+
+  <!-- Navigation -->
+  <h2>Navigation</h2>
+  <div class="nav-mock">
+    <div class="nav-brand">
+      <svg width="24" height="24" viewBox="0 0 48 48" fill="none">
+        <polygon points="24,6 42,42 6,42" fill="var(--sage-green)" opacity="0.8"/>
+        <polygon points="16,42 28,18 40,42" fill="var(--stone)" opacity="0.6"/>
+      </svg>
+      StoryBook
+    </div>
+    <div class="nav-links"><a href="#">Explore</a><a href="#">Map</a><a href="#">About</a></div>
+  </div>
+
+  <!-- Full Layout Mockup -->
+  <h2>Layout Mockup</h2>
+  <div class="layout-mock">
+    <div style="background:white;padding:0.6rem 1.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e8e8e8">
+      <span style="font-weight:700;display:flex;align-items:center;gap:0.4rem">
+        <svg width="20" height="20" viewBox="0 0 48 48" fill="none">
+          <polygon points="24,6 42,42 6,42" fill="var(--sage-green)" opacity="0.8"/>
+          <polygon points="16,42 28,18 40,42" fill="var(--stone)" opacity="0.6"/>
+        </svg>
+        StoryBook
+      </span>
+      <span style="font-size:0.8rem;color:var(--stone)">Explore &nbsp;&bull;&nbsp; Map &nbsp;&bull;&nbsp; About</span>
+    </div>
+    <div class="layout-hero">
+      <div>
+        <h3>Discover Your Next Adventure</h3>
+        <p>Explore breathtaking trails, hidden valleys, and mountain vistas. Your story begins here.</p>
+        <div class="btn-row">
+          <button class="btn btn-primary btn-sm">Start Exploring</button>
+          <button class="btn btn-secondary btn-sm">View Map</button>
+        </div>
+      </div>
+      <div>
+        <svg viewBox="0 0 400 200" class="mountain-svg">
+          <rect width="400" height="200" fill="#87CEEB" opacity="0.2"/>
+          <polygon points="50,200 150,60 250,200" fill="#A8D5BA" opacity="0.7"/>
+          <polygon points="150,200 280,40 400,200" fill="#9B8E7E" opacity="0.6"/>
+          <polygon points="0,200 120,90 200,200" fill="#A8D5BA" opacity="0.5"/>
+          <circle cx="320" cy="50" r="25" fill="#87CEEB" opacity="0.5"/>
+        </svg>
+      </div>
+    </div>
+    <div class="layout-features">
+      <div class="layout-placeholder">&#127956; Trails</div>
+      <div class="layout-placeholder">&#128506; Maps</div>
+      <div class="layout-placeholder">&#9978; Camps</div>
+    </div>
+    <div style="text-align:center;padding:1rem;border-top:1px solid #e8e8e8;font-size:0.8rem;color:var(--stone)">&copy; 2026 StoryBook &middot; Built with nature in mind</div>
+  </div>
+
+</body>
+</html>
